@@ -2,17 +2,48 @@
 #+OPTIONS: reveal_title_slide:nil
 #+REVEAL_THEME: league
 #+reveal_extra_css: ../extra.css
+#+MACRO: multi-line-frag <div class="fragment">$1</div>
 
 * Introduction
 
-We can define a linear recurrence as sequence \( a_n \) satisfying \( a_n = C_{n - 1}a_{n - 1} + ... + C_{n - k}a_{n - k} \) along with a set of base cases \( a_1 = D_1 ... a_k = D_k \).
-
+We can define a linear recurrence as sequence \( a_n \) satisfying:
+\[ a_n = C_{n - 1}a_{n - 1} + ... + C_{n - k}a_{n - k} \]
+Along with a set of base cases:
+\[ a_1 = D_1, ... a_k = D_k \]
+#+BEGIN_EXPORT html
+<div class="fragment">
+#+END_EXPORT
 Perhaps the most famous example is the Fibonacci Sequence:
-
-\[
-F_1 = F_2 = 1, F_n = F_{n - 1} + F_{n - 2}
-\]
-
+\begin{align*}
+F_n &= F_{n - 1} + F_{n - 2} \\
+F_1 &= F_2 = 1
+\end{align*}
+#+BEGIN_EXPORT html
+</div>
+#+END_EXPORT
 * Of the First Order
 
-\( a_n = ra_{n - 1}, \ a_1 = a \)
+\begin{align*}
+a_n &= ra_{n - 1} \\
+a_1 &= a
+\end{align*}
+
+Blind application gives an \( O(n) \) method of computing the nth term, but it's well known this can be reduced to \( O(log(n)) \)* via the repeating squaring method:
+
+\[
+a_{24} = ar^{24} = a(r^{12})^2 = a((r^{6})^2)^2 = ... = a(((r^2*r)^2)^2)^2
+\]
+
+#+BEGIN_EXPORT html
+<div class="fragment">
+#+END_EXPORT
+*Our caveat is that \( a_n \) will generally grow exponentially so multiplications may soon cease to be a fast operation.  But our time bound stays true if we restrict ourselves for example \( a_n \mod p \).  For example lets take \( a=2, r = 3 \):
+#+begin_src python
+2*pow(3, 10**100, 100000007)
+# 8805418
+#+end_src
+#+BEGIN_EXPORT html
+</div>
+#+END_EXPORT
+
+

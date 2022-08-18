@@ -1,1 +1,10 @@
-.reveal h2 { font-size: 50%; }
+.reveal h2 {
+    font-size: 140%;
+}
+.reveal p {
+    font-size: 70%;
+    text-align: left;
+}
+.MathJax_Display {
+    font-size: 70%;
+}
