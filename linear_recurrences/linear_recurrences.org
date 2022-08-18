@@ -1,0 +1,18 @@
+#+TITLE: Linear Recurrences
+#+OPTIONS: reveal_title_slide:nil
+#+REVEAL_THEME: league
+#+reveal_extra_css: ../extra.css
+
+* Introduction
+
+We can define a linear recurrence as sequence \( a_n \) satisfying \( a_n = C_{n - 1}a_{n - 1} + ... + C_{n - k}a_{n - k} \) along with a set of base cases \( a_1 = D_1 ... a_k = D_k \).
+
+Perhaps the most famous example is the Fibonacci Sequence:
+
+\[
+F_1 = F_2 = 1, F_n = F_{n - 1} + F_{n - 2}
+\]
+
+* Of the First Order
+
+\( a_n = ra_{n - 1}, \ a_1 = a \)

@@ -1,0 +1,13 @@
+# org output types
+*.tex
+*.html
+*.pdf
+
+# emacs backups
+*~
+*#
+
+# org latex image caches
+*ltximg*
+
+/images/
