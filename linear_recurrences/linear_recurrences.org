@@ -2,7 +2,7 @@
 #+OPTIONS: reveal_title_slide:nil
 #+REVEAL_THEME: league
 #+reveal_extra_css: ../extra.css
-#+MACRO: multi-line-frag <div class="fragment">$1</div>
+#+MACRO: multi-line-frag @@html:<div class="fragment"><p>$1</p></div>@@
 
 * Introduction
 
@@ -27,12 +27,17 @@ F_1 &= F_2 = 1
 a_n &= ra_{n - 1} \\
 a_1 &= a
 \end{align*}
-
+#+BEGIN_EXPORT html
+<div class="fragment">
+#+END_EXPORT
 Blind application gives an \( O(n) \) method of computing the nth term, but it's well known this can be reduced to \( O(log(n)) \)* via the repeating squaring method:
 
 \[
 a_{24} = ar^{24} = a(r^{12})^2 = a((r^{6})^2)^2 = ... = a(((r^2*r)^2)^2)^2
 \]
+#+BEGIN_EXPORT html
+</div>
+#+END_EXPORT
 
 #+BEGIN_EXPORT html
 <div class="fragment">
@@ -45,5 +50,37 @@ a_{24} = ar^{24} = a(r^{12})^2 = a((r^{6})^2)^2 = ... = a(((r^2*r)^2)^2)^2
 #+BEGIN_EXPORT html
 </div>
 #+END_EXPORT
+
+* The Fibonacci Sequence
+
+Can we do the same for the Fibonacci sequence?
+
+#+BEGIN_EXPORT html
+<div class="fragment">
+#+END_EXPORT
+Yes, it's well known a similar closed form exists: *Binet's Formula*
+\[
+F_n = \frac{1}{\sqrt{5}} \left[\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n\right] = \left \lfloor \frac{1}{\sqrt{5}} \left(\frac{1 + \sqrt{5}}{2}\right)^n \right \rfloor
+\]
+#+BEGIN_EXPORT html
+</div>
+#+END_EXPORT
+
+#+BEGIN_EXPORT html
+<div class="fragment">
+#+END_EXPORT
+However, we see despite the Fibonacci being positive integers, calculating \( F_n \) this way requires arithmetic with irrational numbers.
+#+BEGIN_EXPORT html
+</div>
+#+END_EXPORT
+#+BEGIN_EXPORT html
+<div class="fragment">
+#+END_EXPORT
+Furthermore, since finding a closed form for linear recurrences of order \( d \) is equivalent to find the roots of a degreee \( d \) polynomial we can't compute a closed form in general.
+#+BEGIN_EXPORT html
+</div>
+#+END_EXPORT
+
+* Matrices
 
 
